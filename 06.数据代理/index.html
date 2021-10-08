@@ -1,0 +1,57 @@
+<!--
+ * @Author: 七画一只妖
+ * @Date: 2021-10-07 13:31:11
+ * @LastEditors: 七画一只妖
+ * @LastEditTime: 2021-10-08 18:46:14
+ * @Description: file content
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初见Vue</title>
+    <script src="../util/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+    </div>
+    <script type="text/javascript">
+        let number = 18
+
+        let person = {
+            name:"张三",
+            sex:"男"
+        }
+
+        Object.defineProperty(person, 'age', {
+            // value:18,
+            // enumerable:true, //将这个属性设置成可被枚举
+            // writable:true, //将这个属性设置成可被修改
+            // configurable:true, //将这个属性设置成可被删除
+
+            get:function(){
+                console.log("有人尝试读取age属性")
+                return number
+            },
+
+            set(value){
+                console.log("有人尝试修改age，修改值是：" + value)
+                number = value
+            }
+        })
+
+        // for(let index in arr){
+        //     console.log(arr[index])
+        // }
+        
+        console.log(Object.keys(person))
+        console.log(person)
+    </script>
+</body>
+
+</html>
