@@ -1,0 +1,60 @@
+<!--
+ * @Author: 七画一只妖
+ * @Date: 2021-10-07 13:31:11
+ * @LastEditors: 七画一只妖
+ * @LastEditTime: 2021-10-10 12:35:05
+ * @Description: file content
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初见Vue</title>
+    <script src="../util/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h1>今天天气好{{changeWhether}}</h1>
+        <button @click="change()">点我切换天气</button>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        new Vue({
+            el:"#root",
+            data:{
+                isHot:true
+            },
+            computed:{
+                changeWhether(){
+                    return this.isHot ? "炎热" : "凉爽"
+                }
+            },
+            methods: {
+                change(){
+                    return this.isHot = !this.isHot
+                }
+            },
+            watch:{
+                // 完整写法
+                // changeWhether:{
+                //     handler(newValue,oldValue){
+                //         console.log("天气改变了",newValue,oldValue)
+                //     }
+                // }
+
+                //简写
+                changeWhether(newValue,oldValue){
+                    console.log("天气改变了",newValue,oldValue)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
