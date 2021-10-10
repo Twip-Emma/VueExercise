@@ -1,0 +1,56 @@
+<!--
+ * @Author: 七画一只妖
+ * @Date: 2021-10-07 13:31:11
+ * @LastEditors: 七画一只妖
+ * @LastEditTime: 2021-10-10 18:13:24
+ * @Description: file content
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初见Vue</title>
+    <script src="../util/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h1>你好，{{name}}</h1>
+        <button @click="add">添加一个yyyx</button>
+        <ul>
+            <li v-for="item in users" :key="item.id">
+                {{item.user_name}}的经验值为{{item.user_exp}}
+                <input type="text">
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        new Vue({
+            el: "#root",
+            data: {
+                users: [
+                    { id: "0001", user_name: "七画", user_exp: 25 },
+                    { id: "0002", user_name: "哦豁", user_exp: 15 },
+                    { id: "0003", user_name: "富贵", user_exp: 30 },
+                    { id: "0004", user_name: "冷璃", user_exp: 24 },
+                    { id: "0005", user_name: "月色", user_exp: 11 },
+                ]
+            },
+            methods: {
+                add() {
+                    this.users.unshift({
+                        id: "0000", user_name: "yyyx", user_exp: 100
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
