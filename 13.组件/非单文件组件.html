@@ -1,0 +1,59 @@
+<!--
+ * @Author: 七画一只妖
+ * @Date: 2021-10-07 13:31:11
+ * @LastEditors: 七画一只妖
+ * @LastEditTime: 2021-10-12 15:51:55
+ * @Description: file content
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初见Vue</title>
+    <script src="../util/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <infoFirst></infoFirst>
+        <infoThen></infoThen>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        const a = Vue.extend({
+            template:`<div> <h1>你好，{{name}}</h1><h1>{{message}}</h1></div>`,
+            data() {
+                return {
+                    name: "世界",
+                    message: "这是第一个组件"
+                }
+            }
+            
+        })
+
+        const b = Vue.extend({
+            data() {
+                return {
+                    name: "大家",
+                    message: "这是第二个组件"
+                }
+            },
+            template: `<div> <h1>你好，{{name}}</h1><h1>{{message}}</h1></div>`
+        })
+
+        new Vue({
+            el: "#root",
+            components: {
+                infofirst: a,
+                infothen: b
+            }
+        })
+    </script>
+</body>
+
+</html>
