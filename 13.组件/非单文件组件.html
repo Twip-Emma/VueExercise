@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-07 13:31:11
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-10-12 15:51:55
+ * @LastEditTime: 2021-10-13 19:03:33
  * @Description: file content
 -->
 <!DOCTYPE html>
@@ -20,15 +20,21 @@
     <!-- 准备一个容器 -->
     <div id="root">
         <infoFirst></infoFirst>
+        <hr>
         <infoThen></infoThen>
     </div>
     <script type="text/javascript">
         Vue.config.productionTip = false
 
-        const a = Vue.extend({
-            template:`<div> <h1>你好，{{name}}</h1><h1>{{message}}</h1></div>`,
+        const b = Vue.extend({
+            template:`<div>
+            <h1>你好，{{name}}</h1><h1>{{message}}</h1>
+            a的值是{{a}}<br>
+            <button @click="a++">点我数字加一</button>
+            </div>`,
             data() {
                 return {
+                    a:0,
                     name: "世界",
                     message: "这是第一个组件"
                 }
@@ -36,7 +42,7 @@
             
         })
 
-        const b = Vue.extend({
+        const a = Vue.extend({
             data() {
                 return {
                     name: "大家",
