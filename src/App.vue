@@ -1,23 +1,32 @@
 <!--
  * @Author: 七画一只妖
- * @Date: 2021-10-18 22:25:37
+ * @Date: 2021-10-13 19:38:00
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-10-20 19:56:27
+ * @LastEditTime: 2021-10-26 22:44:38
  * @Description: file content
 -->
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <div id="nav">
-      <router-link to="/test1">测试1页面</router-link>
-      <router-link to="/test2">测试2页面</router-link>
-    </div>
-    <router-view/>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <hr>
+    <HelloWorld1></HelloWorld1>
+    <hr>
+    <HelloWorld2></HelloWorld2>
   </div>
 </template>
+
+<script>
+import HelloWorld1 from "./components/Test1.vue"
+import HelloWorld2 from "./components/Test2.vue"
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld1,
+    HelloWorld2
+  }
+}
+</script>
 
 <style>
 #app {
@@ -26,18 +35,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  margin-top: 60px;
 }
 </style>
