@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-13 19:38:00
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-10-13 21:20:33
+ * @LastEditTime: 2021-10-26 21:57:45
  * @Description: file content
  */
 import Vue from 'vue'
@@ -17,5 +17,5 @@ Vue.prototype.$axios = axios
 
 axios.defaults.baseURL = '/api'
 new Vue({
-  render: h => h(App),
+ render: h => h(App)
 }).$mount('#app')
