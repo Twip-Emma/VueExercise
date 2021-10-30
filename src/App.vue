@@ -2,16 +2,16 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-13 19:38:00
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-10-28 22:47:23
+ * @LastEditTime: 2021-10-30 21:14:06
  * @Description: file content
 -->
 <template>
   <div id="root">
     <div class="todo-container">
       <div class="todo-wrap">
-        <MyHeader></MyHeader>
-        <MyList :todos="todos"></MyList>
-        <MyFooter></MyFooter>
+        <MyHeader :addTodo="addTodo"></MyHeader>
+        <MyList :todos="todos" :chackTodo="chackTodo" :deleteTodo="deleteTodo"></MyList>
+        <MyFooter :todos="todos" :checkAll="checkAll" :clearOkTodoReal="clearOkTodoReal"></MyFooter>
       </div>
     </div>
   </div>
@@ -37,6 +37,34 @@ export default {
         { id: "003", title: "打豆豆", done: false },
       ],
     };
+  },
+  methods: {
+    addTodo(todoObj){
+      // console.log("我是APP组件，我收到了" ,todoObj)
+      this.todos.unshift(todoObj)
+    },
+    chackTodo(id){
+      this.todos.forEach((todo)=>{
+        if(todo.id === id){
+          todo.done = !todo.done
+        }
+      })
+    },
+    deleteTodo(id){
+      this.todos = this.todos.filter((todo)=>{
+        return todo.id !== id
+      })
+    },
+    checkAll(done){
+      this.todos.forEach((todo)=>{
+        todo.done = done
+      })
+    },
+    clearOkTodoReal(){
+      this.todos = this.todos.filter((todo) => {
+        return todo.done === false
+      })
+    }
   },
 };
 </script>

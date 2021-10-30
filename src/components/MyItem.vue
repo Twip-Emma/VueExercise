@@ -2,33 +2,48 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-28 21:45:12
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-10-28 22:32:39
+ * @LastEditTime: 2021-10-30 19:51:35
  * @Description: file content
 -->
 <template>
   <li>
     <label>
-      <input type="checkbox" :checked="todo.done"/>
-      <span>{{todo.title}}</span>
+      <input
+        type="checkbox"
+        :checked="todo.done"
+        @change="handlerChacked(todo.id)"
+      />
+      <span>{{ todo.title }}</span>
     </label>
-    <button class="btn btn-danger" style="display: none">删除</button>
+    <button class="btn btn-danger" @click="handleDelete(todo.id)">删除</button>
   </li>
 </template>
 
 <script>
 export default {
   name: "MyItem",
-  props:["todo"],
+  props: ["todo", "chackTodo","deleteTodo"],
   data() {
     return {};
   },
-  mounted(){
-      console.log(this.todo)
-  }
+  methods: {
+    handlerChacked(TodoId) {
+      this.chackTodo(TodoId);
+    },
+    handleDelete(id) {
+      if (confirm("确定删除吗")) {
+        console.log(id);
+        this.deleteTodo(id)
+      }
+    },
+  },
+  // mounted(){
+  //     console.log(this.todo)
+  // }
 };
 </script>
 
-<style>
+<style scoped>
 /*item*/
 li {
   list-style: none;
@@ -64,4 +79,11 @@ li:last-child {
   border-bottom: none;
 }
 
+li:hover {
+  background: #ddd;
+}
+
+li:hover button {
+  display: block;
+}
 </style>

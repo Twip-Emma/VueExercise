@@ -2,12 +2,12 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-28 21:45:12
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-10-28 22:53:48
+ * @LastEditTime: 2021-10-30 19:38:44
  * @Description: file content
 -->
 <template>
   <div class="todo-header">
-    <input type="text" placeholder="请输入你的任务名称，按回车键确认" @keyup.enter="add" />
+    <input type="text" placeholder="请输入你的任务名称，按回车键确认" v-model="title" @keyup.enter="add" />
   </div>
 </template>
 
@@ -15,19 +15,27 @@
 import {nanoid} from "nanoid"
 export default {
   name: "MyHeader",
+  props:["addTodo"],
   data() {
-    return {};
+    return {
+      title:""
+    };
   },
   methods:{
-      add(event){
-          const todoObjNew = {id:nanoid(),title:event.target.value,done:false}
-          console.log(todoObjNew)
+      add(){
+        if(!this.title.trim()){
+          alert("输入不能为空")
+          return
+        }
+          const todoObjNew = {id:nanoid(),title:this.title,done:false}
+          this.addTodo(todoObjNew)
+          this.title = ""
       }
   }
 };
 </script>
 
-<style>
+<style scoped>
 /*header*/
 .todo-header input {
   width: 560px;
