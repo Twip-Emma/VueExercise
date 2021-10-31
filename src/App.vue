@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-13 19:38:00
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-10-30 21:14:06
+ * @LastEditTime: 2021-10-31 19:47:31
  * @Description: file content
 -->
 <template>
@@ -31,11 +31,7 @@ export default {
   },
   data() {
     return {
-      todos: [
-        { id: "001", title: "吃饭", done: false },
-        { id: "002", title: "睡觉", done: true },
-        { id: "003", title: "打豆豆", done: false },
-      ],
+      todos: JSON.parse(localStorage.getItem("todoListData")) || []
     };
   },
   methods: {
@@ -66,6 +62,14 @@ export default {
       })
     }
   },
+  watch:{
+    todos:{
+      deep:true,
+      handler(value){
+        localStorage.setItem("todoListData",JSON.stringify(value))
+      }
+    }
+  }
 };
 </script>
 

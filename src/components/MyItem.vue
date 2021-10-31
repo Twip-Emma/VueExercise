@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-28 21:45:12
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-10-30 19:51:35
+ * @LastEditTime: 2021-10-31 19:48:55
  * @Description: file content
 -->
 <template>
@@ -32,7 +32,6 @@ export default {
     },
     handleDelete(id) {
       if (confirm("确定删除吗")) {
-        console.log(id);
         this.deleteTodo(id)
       }
     },
