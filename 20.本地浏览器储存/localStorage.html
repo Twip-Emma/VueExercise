@@ -1,0 +1,40 @@
+<!--
+ * @Author: 七画一只妖
+ * @Date: 2021-10-31 19:20:40
+ * @LastEditors: 七画一只妖
+ * @LastEditTime: 2021-10-31 19:31:11
+ * @Description: file content
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+</head>
+<body>
+    <button onclick="addData()">点我添加数据</button>
+    <button onclick="removeData()">点我移除数据</button>
+    <button onclick="clearData()">点我清除数据</button>
+    <script>
+        function addData(){
+            window.localStorage.setItem("数据1","嗨，这是一条数据")
+            window.localStorage.setItem("数据2",88886666)
+            var data = {"name":"张三","age":18}
+            window.localStorage.setItem("数据3",JSON.stringify(data))
+            console.log(data)
+            var data2 = JSON.stringify(data)
+            console.log(data2)
+            var data3 = JSON.parse(data2)
+            console.log(data3)
+        }
+        function removeData(){
+            window.localStorage.removeItem("数据2")
+        }
+        function clearData(){
+            window.localStorage.clear()
+        }
+    </script>
+</body>
+</html>
