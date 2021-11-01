@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-28 21:45:12
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-01 22:06:06
+ * @LastEditTime: 2021-11-01 21:17:38
  * @Description: file content
 -->
 <template>
@@ -16,7 +16,6 @@
       <span>{{ todo.title }}</span>
     </label>
     <button class="btn btn-danger" @click="handleDelete(todo.id)">删除</button>
-    <button class="btn btn-edit" @click="handleDelete(todo.id)">编辑</button>
   </li>
 </template>
 
