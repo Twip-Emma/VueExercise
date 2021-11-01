@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-28 21:45:12
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-01 20:07:46
+ * @LastEditTime: 2021-10-30 21:13:16
  * @Description: file content
 -->
 <template>
@@ -20,7 +20,7 @@
 <script>
 export default {
   name: "MyFooter",
-  props: ["todos"],
+  props: ["todos","checkAll","clearOkTodoReal"],
   data() {
     return {};
   },
@@ -50,12 +50,10 @@ export default {
   },
   methods: {
     chackAllBtn(e){
-      // this.checkAll(e.target.checked)
-      this.$emit("checkAll",e.target.checked)
+      this.checkAll(e.target.checked)
     },
     clearOkTodo(){
-      // this.clearOkTodoReal()
-      this.$emit("clearOkTodoReal")
+      this.clearOkTodoReal()
     }
   },
 };

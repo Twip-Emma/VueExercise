@@ -2,16 +2,16 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-13 19:38:00
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-01 22:05:49
+ * @LastEditTime: 2021-10-31 19:47:31
  * @Description: file content
 -->
 <template>
   <div id="root">
     <div class="todo-container">
       <div class="todo-wrap">
-        <MyHeader @addTodo="addTodo"></MyHeader>
-        <MyList :todos="todos"></MyList>
-        <MyFooter :todos="todos" @checkAll="checkAll" @clearOkTodoReal="clearOkTodoReal"></MyFooter>
+        <MyHeader :addTodo="addTodo"></MyHeader>
+        <MyList :todos="todos" :chackTodo="chackTodo" :deleteTodo="deleteTodo"></MyList>
+        <MyFooter :todos="todos" :checkAll="checkAll" :clearOkTodoReal="clearOkTodoReal"></MyFooter>
       </div>
     </div>
   </div>
@@ -69,14 +69,6 @@ export default {
         localStorage.setItem("todoListData",JSON.stringify(value))
       }
     }
-  },
-  mounted(){
-    this.$bus.$on("chackTodo",this.chackTodo)
-    this.$bus.$on("deleteTodo",this.deleteTodo)
-  },
-  beforeDestroy(){
-    this.$bus.$off("chackTodo")
-    this.$bus.$off("deleteTodo")
   }
 };
 </script>
@@ -105,13 +97,6 @@ body {
   color: #fff;
   background-color: #da4f49;
   border: 1px solid #bd362f;
-}
-
-.btn-edit{
-  color: #fff;
-  background-color: skyblue;
-  border: 1px solid rgb(107, 164, 187);
-  margin-right: 5px;
 }
 
 .btn-danger:hover {

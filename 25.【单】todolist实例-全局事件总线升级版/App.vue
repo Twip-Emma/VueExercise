@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-13 19:38:00
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-01 22:05:49
+ * @LastEditTime: 2021-11-01 21:16:31
  * @Description: file content
 -->
 <template>
@@ -105,13 +105,6 @@ body {
   color: #fff;
   background-color: #da4f49;
   border: 1px solid #bd362f;
-}
-
-.btn-edit{
-  color: #fff;
-  background-color: skyblue;
-  border: 1px solid rgb(107, 164, 187);
-  margin-right: 5px;
 }
 
 .btn-danger:hover {

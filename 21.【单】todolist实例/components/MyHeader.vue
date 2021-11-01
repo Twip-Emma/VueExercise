@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-28 21:45:12
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-01 19:59:39
+ * @LastEditTime: 2021-10-30 19:38:44
  * @Description: file content
 -->
 <template>
@@ -15,6 +15,7 @@
 import {nanoid} from "nanoid"
 export default {
   name: "MyHeader",
+  props:["addTodo"],
   data() {
     return {
       title:""
@@ -27,7 +28,7 @@ export default {
           return
         }
           const todoObjNew = {id:nanoid(),title:this.title,done:false}
-          this.$emit("addTodo",todoObjNew)
+          this.addTodo(todoObjNew)
           this.title = ""
       }
   }
