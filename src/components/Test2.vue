@@ -2,14 +2,14 @@
  * @Author: 七画一只妖
  * @Date: 2021-11-03 16:18:20
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-03 16:37:36
+ * @LastEditTime: 2021-11-03 16:55:57
  * @Description: file content
 -->
 <template>
-  <div class="test">
+  <div>
       <button @click="isShow = !isShow">显示\隐藏</button>
-      <transition :appear="true">
-          <h1 v-show="isShow" class="msg">{{msg}}</h1>
+      <transition name="hello" :appear="true">
+          <h1 v-show="isShow">{{msg}}</h1>
       </transition>
   </div>
 </template>
@@ -27,24 +27,21 @@ export default {
 </script>
 
 <style scoped>
-.msg {
-    background: #ddd;
+
+h1{
+    background-color: orange;
+    
+}
+.hello-enter-active,.hello-leave-active{
+    transform: 0.5s linear;
 }
 
-.v-enter-active{
-    animation: qihuayizhiyao 0.5s linear;
+.hello-enter,.hello-leave-to{
+    transform: translateX(-100%);
 }
 
-.v-leave-active{
-    animation: qihuayizhiyao 0.5s linear reverse;
+.hello-leave,.hello-enter-to{
+    transform: translateX(0);
 }
 
-@keyframes qihuayizhiyao{
-    from{
-        transform: translateX(-100%);
-    }
-    to{
-        transform: translateX(0px);
-    }
-}
 </style>
