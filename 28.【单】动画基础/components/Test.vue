@@ -2,13 +2,13 @@
  * @Author: 七画一只妖
  * @Date: 2021-11-03 16:18:20
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-03 16:37:36
+ * @LastEditTime: 2021-11-03 18:48:04
  * @Description: file content
 -->
 <template>
   <div class="test">
       <button @click="isShow = !isShow">显示\隐藏</button>
-      <transition :appear="true">
+      <transition name="hello" :appear="true">
           <h1 v-show="isShow" class="msg">{{msg}}</h1>
       </transition>
   </div>
@@ -31,11 +31,11 @@ export default {
     background: #ddd;
 }
 
-.v-enter-active{
+.hello-enter-active{
     animation: qihuayizhiyao 0.5s linear;
 }
 
-.v-leave-active{
+.hello-leave-active{
     animation: qihuayizhiyao 0.5s linear reverse;
 }
 
