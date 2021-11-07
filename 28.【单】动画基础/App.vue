@@ -2,35 +2,32 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-13 19:38:00
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-04 19:36:25
+ * @LastEditTime: 2021-11-03 16:48:46
  * @Description: file content
 -->
 <template>
-  <div id="app">
-    <div class="container">
-      <Search />
-      <List />
-    </div>
+  <div>
+    <Test></Test>
+    <Test2></Test2>
   </div>
 </template>
 
 <script>
-import List from "./components/List"
-import Search from "./components/Search"
-// import axios from 'axios'
+import Test from "./components/Test"
+import Test2 from "./components/Test2"
 
 export default {
   name:"App",
-  components:{List,Search},
+  components:{
+    Test,Test2
+  },
   data() {
     return {
       
     }
-  }
+  },
 };
 </script>
 
 <style>
-
-
 </style>
