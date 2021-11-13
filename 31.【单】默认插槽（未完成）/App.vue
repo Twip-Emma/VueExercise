@@ -2,12 +2,12 @@
  * @Author: 七画一只妖
  * @Date: 2021-10-13 19:38:00
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-08 10:43:17
+ * @LastEditTime: 2021-11-07 14:57:23
  * @Description: file content
 -->
 <template>
   <div class="container">
-    <!-- <Category :listData="games" title="游戏">
+    <Category :listData="games" title="游戏">
       <img
         src="https://api.pixiv.moe/image/i.pximg.net/img-master/img/2021/11/05/03/07/40/93924717_p0_master1200.jpg"
         alt=""
@@ -23,20 +23,18 @@
         src="https://api.pixiv.moe/image/i.pximg.net/img-master/img/2021/11/05/00/30/00/93922241_p0_master1200.jpg"
         alt=""
       />
-    </Category> -->
-    <Book></Book>
+    </Category>
   </div>
 </template>
 
 <script>
-// import Category from "./components/Category";
-import Book from "./components/Book"
-// import Book from './components/Book.vue';
+import Category from "./components/Category";
+// import Search from "./components/Search"
 // import axios from 'axios'
 
 export default {
   name: "App",
-  components: { Book },
+  components: { Category },
   data() {
     return {
       games: ["英雄联盟", "穿越火线", "DOTA"],
