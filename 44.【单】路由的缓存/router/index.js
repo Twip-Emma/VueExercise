@@ -2,7 +2,7 @@
  * @Author: 七画一只妖
  * @Date: 2021-11-16 16:05:17
  * @LastEditors: 七画一只妖
- * @LastEditTime: 2021-11-16 22:06:19
+ * @LastEditTime: 2021-11-16 18:39:47
  * @Description: file content
  */
 import VueRouter from "vue-router";
@@ -13,11 +13,11 @@ import Message from '../pages/Message'
 import News from "../pages/News"
 import Detial from "../pages/Detial"
 
-const router = new VueRouter({
+export default new VueRouter({
     routes: [
         {
             path: "/about",
-            component: About,
+            component: About
         },
         {
             path: "/home",
@@ -25,17 +25,11 @@ const router = new VueRouter({
             children: [
                 {
                     path: "news",
-                    component: News,
-                    meta:{
-                        isReal:true
-                    },
+                    component: News
                 },
                 {
                     path: "message",
                     component: Message,
-                    meta:{
-                        isReal:true
-                    },
                     children: [
                         {
                             name: "wuhuqifei",
@@ -61,23 +55,3 @@ const router = new VueRouter({
         }
     ]
 })
-
-// 全局路由守卫（前置通知）初始化、切换前会被触发
-router.beforeEach((to, _, next) => {
-    if (to.meta.isReal) { // 权限校验
-        if (localStorage.getItem("school") === "湖南工程学院") {
-            next()
-            console.log("欢迎您！")
-        } else { console.log("你不是湖南工程学院的学生！") }
-    } else {
-        next()
-    }
-})
-
-// 全局路由守卫（后置通知）初始化、切换后会被触发
-router.afterEach((to, from) => {
-    console.log("to and from are both route objects." , to , from)
-})
-
-
-export default router
